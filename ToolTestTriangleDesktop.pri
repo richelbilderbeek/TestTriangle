@@ -1,13 +1,13 @@
-include(../../Tools/ToolTestTriangle/ToolTestTriangleConsole.pri)
+include(ToolTestTriangleConsole.pri)
 
 SOURCES += \
-    ../../Tools/ToolTestTriangle/qttesttrianglemenudialog.cpp \
-    ../../Tools/ToolTestTriangle/qttesttrianglemaindialog.cpp
+    $$PWD/qttesttrianglemenudialog.cpp \
+    $$PWD/qttesttrianglemaindialog.cpp
 
 FORMS += \
-    ../../Tools/ToolTestTriangle/qttesttrianglemenudialog.ui \
-    ../../Tools/ToolTestTriangle/qttesttrianglemaindialog.ui
+    $$PWD/qttesttrianglemenudialog.ui \
+    $$PWD/qttesttrianglemaindialog.ui
 
 HEADERS += \
-    ../../Tools/ToolTestTriangle/qttesttrianglemenudialog.h \
-    ../../Tools/ToolTestTriangle/qttesttrianglemaindialog.h
+    $$PWD/qttesttrianglemenudialog.h \
+    $$PWD/qttesttrianglemaindialog.h

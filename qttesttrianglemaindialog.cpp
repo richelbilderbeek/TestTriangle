@@ -36,9 +36,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include "fileio.h"
 #include "geometry.h"
-#include "testtimer.h"
+
 #include "qtnavigationablegraphicsview.h"
-#include "trace.h"
+
 #include "trianglemeshdialog.h"
 #include "trianglemeshface.h"
 #include "trianglemeshpoint.h"
@@ -78,7 +78,7 @@ void ribi::QtTestTriangleMainDialog::DisplayPolygons() noexcept
 
   if (verbose)
   {
-    std::cout << "Convert " << wkt.size() << " WKT characters to SVG" << std::endl;
+    std::cout << "Convert " << wkt.size() << " WKT characters to SVG" << '\n';
   }
 
   m_dialog->SetShapes(wkt);
@@ -91,7 +91,7 @@ void ribi::QtTestTriangleMainDialog::DisplayPolygons() noexcept
 
     if (verbose)
     {
-      std::cout << "Writing " << svg_text.size() << " SVG characters to file" << std::endl;
+      std::cout << "Writing " << svg_text.size() << " SVG characters to file" << '\n';
     }
 
     f << svg_text;
@@ -171,7 +171,7 @@ void ribi::QtTestTriangleMainDialog::DisplayTriangleMesh() noexcept
     {
       if (verbose)
       {
-        std::cout << "No shapes found" << std::endl;
+        std::cout << "No shapes found" << '\n';
       }
       continue;
     }
@@ -199,7 +199,7 @@ void ribi::QtTestTriangleMainDialog::DisplayTriangleMesh() noexcept
         d.GetTriangleOutputPoly().c_str()
       );
 
-      std::clog << "Convert the polygons to SVG" << std::endl;
+      std::clog << "Convert the polygons to SVG" << '\n';
     }
 
     const std::string svg_text = d.GetTriangleMeshAsSvg();
@@ -210,7 +210,7 @@ void ribi::QtTestTriangleMainDialog::DisplayTriangleMesh() noexcept
     }
 
     const std::string filename = fileio::FileIo().GetTempFileName(".svg");
-    if (verbose) { std::clog << "Write SVG to file '" << filename << "'" << std::endl; }
+    if (verbose) { std::clog << "Write SVG to file '" << filename << "'" << '\n'; }
     {
       std::ofstream f(filename.c_str());
       f << svg_text;
@@ -269,7 +269,7 @@ void ribi::QtTestTriangleMainDialog::Test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
+  
   ribi::trim::Dialog();
   QtTestTriangleMainDialog d;
   //Test if an empty result will be accepted

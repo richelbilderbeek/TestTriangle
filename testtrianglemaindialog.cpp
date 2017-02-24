@@ -33,9 +33,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <boost/make_shared.hpp>
 #include "fileio.h"
 #include "geometry.h"
-#include "testtimer.h"
+
 #include "polyfile.h"
-#include "trace.h"
+
 #include "trianglefile.h"
 //#include "trianglemeshtemplate.h"
 #include "trianglemeshdialog.h"
@@ -67,7 +67,7 @@ void ribi::TestTriangleMainDialog::Test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
+  
   //Create a simple mesh
   try
   {
