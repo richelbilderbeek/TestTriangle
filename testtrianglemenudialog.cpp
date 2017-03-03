@@ -1,23 +1,3 @@
-//---------------------------------------------------------------------------
-/*
-TestTriangle, compare Triangle to its C++ equivalent
-Copyright (C) 2014-2015 Richel Bilderbeek
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolTestTriangle.htm
-//---------------------------------------------------------------------------
 #include "testtrianglemenudialog.h"
 
 #include <cassert>
@@ -42,7 +22,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "polyfile.h"
 #include "ribi_regex.h"
 #include "polyfilefrompolygons.h"
-#include "richelbilderbeekprogram.h"
 
 #include "trianglefile.h"
 #include "testtrianglemaindialog.h"
@@ -285,7 +264,6 @@ ribi::About ribi::TestTriangleMenuDialog::GetAbout() const noexcept
   a.AddLibrary("Container version: " + Container().GetVersion());
   a.AddLibrary("FileIo version: " + fileio::FileIo().GetVersion());
   a.AddLibrary("Geometry version: " + Geometry().GetVersion());
-  a.AddLibrary("Plane version: " + Plane::GetVersion());
   a.AddLibrary("PolyFile version: " + PolyFile::GetVersion());
   a.AddLibrary("PolyFileFromPolygons version: " + PolyFileFromPolygons::GetVersion());
   a.AddLibrary("ribi::Regex version: " + ribi::Regex::GetVersion());
@@ -313,15 +291,6 @@ ribi::Help ribi::TestTriangleMenuDialog::GetHelp() const noexcept
       GetAbout().GetFileTitle() + " -w POLYGON((0 1,-1 -1,1 -1)),LINESTRING(0 -1,-1 1,1 1,0 -1) -r 1.0 -q 1.0 -b",
     }
   );
-}
-
-boost::shared_ptr<const ribi::Program> ribi::TestTriangleMenuDialog::GetProgram() const noexcept
-{
-  boost::shared_ptr<const ribi::Program> p {
-    new ribi::ProgramTestTriangle
-  };
-  assert(p);
-  return p;
 }
 
 std::string ribi::TestTriangleMenuDialog::GetVersion() const noexcept
@@ -353,17 +322,6 @@ void ribi::TestTriangleMenuDialog::Test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  const bool verbose{false};
-  // Test classes used by this one"); }
-  {
-    fileio::FileIo();
-    Geometry();
-    PolyFile( Vertices() );
-    PolyFileFromPolygons( Geometry().WktToShapes("POLYGON((1 1,-1 1,-1 -1,1 -1))") );
-    TriangleFile( Geometry().WktToShapes("POLYGON((1 1,-1 1,-1 -1,1 -1))") );
-    trim::Dialog();
-  }
-  
   // Construction"); }
   {
     TestTriangleMenuDialog d;

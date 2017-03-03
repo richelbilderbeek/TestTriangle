@@ -44,7 +44,7 @@ script:
   # Console
   - qmake ToolTestTriangleConsole.pro
   - make debug
-  - ./ToolTestTriangleConsole
+  - ./ToolTestTriangleConsole --wkt POLYGON((1 1,-1 1,-1 -1,1 -1)) --triangle_area 1.0 --triangle_quality 1.0 --verbose
   # Desktop
   - qmake ToolTestTriangleDesktop.pro
   - make debug
