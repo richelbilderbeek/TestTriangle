@@ -6,3 +6,5 @@ master|[![Build Status](https://travis-ci.org/richelbilderbeek/TestTriangle.svg?
 develop|[![Build Status](https://travis-ci.org/richelbilderbeek/TestTriangle.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/)
 
 Tests the tool TRIANGLE, a tool to do a Delaunay triangulation
+
+![Menu](Screenshots/Menu.png)
