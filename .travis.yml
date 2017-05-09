@@ -48,11 +48,11 @@ script:
   - cd TestTriangle
   - ln -s ../Triangle/ToolTriangleConsole
   # Console
-  - qmake ToolTestTriangleConsole.pro
+  - qmake -qt=qt5 ToolTestTriangleConsole.pro
   - make debug
   - ./ToolTestTriangleConsole --wkt "POLYGON((1 1,-1 1,-1 -1,1 -1))" --triangle_area 1.0 --triangle_quality 1.0 --verbose
   # Desktop
-  - qmake ToolTestTriangleDesktop.pro
+  - qmake -qt=qt5 ToolTestTriangleDesktop.pro
   - make debug
   - ./ToolTestTriangleDesktop &
   - sleep 10
