@@ -39,6 +39,13 @@ before_script:
 
 script: 
   - ./download_other_githubs
+  # Build Triangle
+  - cd ../Triangle
+  - qmake
+  - make
+  - cd ..
+  - cd TriangleMeshCreator
+  - ln -s ../Triangle/ToolTriangleConsole
   # Console
   - qmake ToolTestTriangleConsole.pro
   - make debug
