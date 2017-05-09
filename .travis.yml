@@ -1,13 +1,9 @@
 language: cpp
 compiler: gcc
-sudo: require
-dist: trusty # Qt5, from https://gist.github.com/jreese/6207161#gistcomment-1462109
+dist: trusty
 
 before_install:
   - echo $TRAVIS_BRANCH
-  # Qt5, from https://gist.github.com/jreese/6207161#gistcomment-1462109
-  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
-  - sudo apt-get update -qq
   # C++14
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
@@ -19,6 +15,8 @@ install:
   # Qt5
   - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+  # Qt5 SVG
+  - sudo apt-get install libqt5svg5-dev
   # C++14
   - sudo apt-get install -qq g++-5
   # gcov
@@ -44,7 +42,7 @@ script:
   # Console
   - qmake ToolTestTriangleConsole.pro
   - make debug
-  - ./ToolTestTriangleConsole --wkt POLYGON((1 1,-1 1,-1 -1,1 -1)) --triangle_area 1.0 --triangle_quality 1.0 --verbose
+  - ./ToolTestTriangleConsole --wkt "POLYGON((1 1,-1 1,-1 -1,1 -1))" --triangle_area 1.0 --triangle_quality 1.0 --verbose
   # Desktop
   - qmake ToolTestTriangleDesktop.pro
   - make debug
