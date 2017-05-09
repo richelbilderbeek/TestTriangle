@@ -45,7 +45,7 @@ script:
   - qmake
   - make
   - cd ..
-  - cd TriangleMeshCreator
+  - cd TestTriangle
   - ln -s ../Triangle/ToolTriangleConsole
   # Console
   - qmake ToolTestTriangleConsole.pro
